@@ -1,9 +1,9 @@
 package linklist;
 
-public class LL {
+public class SizeLL {
     Node head;
     private int size;
-    LL(){
+    SizeLL(){
         this.size=0;
     }
     //first create a node class
@@ -89,7 +89,7 @@ public class LL {
         return size;
     }
     public static void main(String[] args) {
-        LL list=new LL();
+        SizeLL list=new SizeLL();
         list.addFirst("s");
         list.addFirst("a");
         list.addLast("hati");
