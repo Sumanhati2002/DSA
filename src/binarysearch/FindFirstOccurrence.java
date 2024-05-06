@@ -13,7 +13,6 @@ public class FindFirstOccurrence {
             if (tergate==arr[mid]){
                 res=mid;
                 end=mid-1;
-
             }
             else if (tergate>arr[mid]) {
                 start=mid+1;
