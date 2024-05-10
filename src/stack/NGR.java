@@ -1,18 +1,23 @@
 package stack;
 
+import java.util.Stack;
+
 public class NGR {
     public static void main(String[] args) {
-        int[] arr={1,3,2,4};
+        int[] arr={4,10,5,18,3,12,7};
         int n=arr.length;
-        for (int i=0;i<n;i++){
-            int next = -1;
-            for (int j=i+1;j<n;j++){
-                    if (arr[j]>arr[i]){
-                        next=arr[j];
-                        break;
-                    }
+        Stack<Integer> s=new Stack<>();
+        for (int i=n-1;i>=0;i--){
+            while (!s.isEmpty() && arr[i]>s.peek()){
+                s.pop();
             }
-            System.out.println(next);
+            if (s.isEmpty()){
+                System.out.println(-1);
+            }
+            else {
+                System.out.println(s.peek());
+            }
+            s.push(arr[i]);
         }
     }
 }
