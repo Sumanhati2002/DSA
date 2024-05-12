@@ -7,17 +7,22 @@ public class NGR {
         int[] arr={4,10,5,18,3,12,7};
         int n=arr.length;
         Stack<Integer> s=new Stack<>();
+        int[] output = new int[n];
         for (int i=n-1;i>=0;i--){
             while (!s.isEmpty() && arr[i]>s.peek()){
                 s.pop();
             }
             if (s.isEmpty()){
-                System.out.println(-1);
+                output[i] = -1;
             }
             else {
-                System.out.println(s.peek());
+                output[i] = s.peek();
             }
             s.push(arr[i]);
+        }
+        // Printing the output array
+        for (int i = 0; i < n; i++) {
+            System.out.println(output[i]);
         }
     }
 }
