@@ -29,30 +29,39 @@ public class Histogram {
         }
         //print the new arr
         for (int i=0;i<n;i++){
-            System.out.println(newArr[i]);
+            System.out.print(newArr[i]+",");
         }
 
         //find NSR
         System.out.println("###########");
-        Stack<Integer> s2=new Stack<>();
+        Stack<Integer> s1=new Stack<>();
+        Stack<Integer> indexStack1 = new Stack<>();
         int[] output = new int[n];
         for (int i=n-1;i>=0;i--){
-            while (!s2.isEmpty() && s2.peek()>=arr[i]){
-                s2.pop();
+            while (!s1.isEmpty() && s1.peek()>=arr[i]){
+                s1.pop();
+                indexStack1.pop();
             }
-            if (s2.isEmpty()){
-//                System.out.println(-1);
-                output[i] = -1;
+            if (s1.isEmpty()){
+                output[i] = n;
             }
             else {
-//                s2.peek();
-                output[i] = s.peek();
+//                output[i] = s1.peek();
+                output[i]=indexStack1.peek();
             }
-            s2.push(arr[i]);
+            s1.push(arr[i]);
+            indexStack1.push(i);
         }
         // Printing the NSR values
         for (int i = 0; i < n; i++) {
-            System.out.println(output[i]);
+            System.out.print(output[i]+",");
+        }
+
+        //take another array
+        System.out.println("############");
+        int[] anotherArr=new int[n];
+        for (int i=0;i<n;i++){
+            System.out.print(((output[i]-newArr[i])-1)*arr[i]+",");
         }
     }
 }
